@@ -1,0 +1,2 @@
+https://docs.microsoft.com/en-us/azure/cognitive-services/cognitive-services-apis-create-account-cli
+https://github.com/Azure-Samples/active-directory-b2c-xamarin-native
