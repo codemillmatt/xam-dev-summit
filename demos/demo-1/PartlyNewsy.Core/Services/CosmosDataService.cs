@@ -19,10 +19,7 @@ namespace PartlyNewsy.Core
         IAuthenticationService authService;
 
         DocumentClient docClient;
-
-        readonly string dbEndpoint = "";
-        readonly string apiKey = "";
-
+        
         readonly string dbName = "user-preferences";
         readonly string collectionName = "Info";
 
@@ -30,7 +27,7 @@ namespace PartlyNewsy.Core
         {
             authService = DependencyService.Get<IAuthenticationService>();
 
-            docClient = new DocumentClient(new Uri(dbEndpoint), apiKey);            
+            docClient = new DocumentClient(new Uri(Constants.CosmosEndpoint), Constants.CosmosApiKey);            
         }
 
         public async Task<List<NewsCategory>> GetAllNewsCategoriesWithUserFavorites()

@@ -30,3 +30,9 @@ az storage account create \
 -l southcentralus \
 --sku Standard_LRS \
 --kind StorageV2
+
+az keyvault create \
+-g xam-dev-summit-scus \
+-n xdskeyvaultscus \
+-l southcentralus \
+--sku Standard

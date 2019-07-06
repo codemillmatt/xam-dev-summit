@@ -12,13 +12,12 @@ using Microsoft.AppCenter.Crashes;
 namespace PartlyNewsy.Core
 {
     public class FunctionsNewsService : INewsService
-    {
-        readonly string newsFunctionApiUrl = "";
+    {        
         readonly INewsRestAPI newsRestAPI;
 
         public FunctionsNewsService()
         {
-            newsRestAPI = RestService.For<INewsRestAPI>(newsFunctionApiUrl);
+            newsRestAPI = RestService.For<INewsRestAPI>(Constants.NewsFunctionsUrl);
         }
 
         public async Task<List<Article>> GetLocalNews(string locality)

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:views="clr-namespace:PartlyNewsy.Views"
+    x:Class="PartlyNewsy.SearchPage"
+    Shell.NavBarIsVisible="True"
+    BackgroundColor="#f2f2f2">
+
+    <Shell.TitleView>
+        <StackLayout>
+            <Label Text="Explore"
+                   TextColor="#171717"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   Margin="-10,14,0,0"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center" />
+        </StackLayout>
+    </Shell.TitleView>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style 
+               TargetType="views:InterestsTile">
+                <Setter Property="FlexLayout.Basis"
+                        Value="33%" />
+            </Style>
+        </ResourceDictionary>
+        
+        <StyleSheet>
+            <![CDATA[
+            InterestsTile {
+                margin-bottom: 10;
+            }
+            ]]>
+        </StyleSheet>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <CollectionView ItemsSource="{Binding NewsCategories}">
+            <CollectionView.ItemsLayout>
+                <GridItemsLayout Orientation="Vertical" Span="3" />
+            </CollectionView.ItemsLayout>
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <views:InterestsTile />
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>

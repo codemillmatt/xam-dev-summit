@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage 
+    xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"        
+    xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:views="clr-namespace:PartlyNewsy.Views"
+    xmlns:controls="clr-namespace:PartlyNewsy"
+    mc:Ignorable="d"
+    x:Class="PartlyNewsy.NewsCollectionPage"
+    Visual="Material"
+    Shell.NavBarIsVisible="False"
+    BackgroundColor="#FAFAFA"
+    Title="Partly Newsy">
+
+    <ContentPage.Resources>
+        <StyleSheet>
+            <![CDATA[
+            .newsRow {
+                margin-bottom: 10;
+            }
+            ]]>
+        </StyleSheet>
+
+        <controls:FrontPageArticleSelector x:Key="ArticleSelector" />
+    </ContentPage.Resources>
+
+    <Shell.TitleView>
+        <StackLayout>
+            <Label Text="{Binding LocalityName}"
+                   TextColor="#171717"
+                   FontSize="24"
+                   FontAttributes="Bold"
+                   Margin="-10,14,0,0"
+                   HorizontalTextAlignment="Center"
+                   VerticalTextAlignment="Center"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center" />
+        </StackLayout>
+    </Shell.TitleView>
+
+    <ContentPage.Content>
+        <CollectionView
+            SelectionMode="Single"
+            SelectionChangedCommand="{Binding SelectArticleCommand}"
+            SelectedItem="{Binding SelectedArticle}"
+            ItemsSource="{Binding NewsCollection}"
+            ItemTemplate="{StaticResource ArticleSelector}">
+
+            <CollectionView.EmptyView>
+                <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand">
+                    <Label
+                        HorizontalOptions="CenterAndExpand"
+                        VerticalOptions="CenterAndExpand"
+                        HorizontalTextAlignment="Center"
+                        VerticalTextAlignment="Center"
+                        FontFamily="{StaticResource FabMDL2}"
+                        Text="&#xE900;"
+                        TextColor="Red"
+                        FontSize="64" />
+                </StackLayout>
+            </CollectionView.EmptyView>
+
+        </CollectionView>
+    </ContentPage.Content>
+</ContentPage>
