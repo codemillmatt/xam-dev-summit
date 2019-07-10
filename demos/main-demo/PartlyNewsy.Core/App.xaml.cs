@@ -12,6 +12,7 @@ using Microsoft.AppCenter.Crashes;
 
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Microsoft.AppCenter.Auth;
 
 namespace PartlyNewsy.Core
 {
@@ -27,9 +28,11 @@ namespace PartlyNewsy.Core
         protected async override void OnStart()
         {
             // Handle when your app starts
-            AppCenter.Start("ios=bd0701e6-b000-42e8-bf75-a390d2a2ee48;" +
-                  "android=b7857000-1ebc-4252-b73b-39db6ab680c2",
-                  typeof(Analytics), typeof(Crashes));
+            AppCenter.Start("ios=601454a7-fa8e-4754-928a-7e7afae04148;" +
+                  "android=62377643-89da-44cc-926c-1156186a6a22",
+                  typeof(Analytics), typeof(Crashes), typeof(Auth));
+
+            await Auth.SetEnabledAsync(true);
 
             await GetInitialTabLayout();
         }

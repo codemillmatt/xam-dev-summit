@@ -19,7 +19,7 @@ namespace PartlyNewsy.Core
         IAuthenticationService authService;
 
         DocumentClient docClient;
-        
+
         readonly string dbName = "user-preferences";
         readonly string collectionName = "Info";
 
@@ -27,7 +27,7 @@ namespace PartlyNewsy.Core
         {
             authService = DependencyService.Get<IAuthenticationService>();
 
-            docClient = new DocumentClient(new Uri(Constants.CosmosEndpoint), Constants.CosmosApiKey);            
+            docClient = new DocumentClient(new Uri(Constants.CosmosEndpoint), Constants.CosmosApiKey);
         }
 
         public async Task<List<NewsCategory>> GetAllNewsCategoriesWithUserFavorites()
@@ -46,9 +46,9 @@ namespace PartlyNewsy.Core
                     item.IsFavorite = true;
             }
 
-            return allCategories;            
+            return allCategories;
         }
-            
+
         public async Task<List<NewsCategory>> GetInterestCategories()
         {
             // This is meant to populate the top row of tabs
@@ -71,7 +71,7 @@ namespace PartlyNewsy.Core
         {
             List<NewsCategory> usersFavoriteNewsCategories = new List<NewsCategory>();
 
-            var userInterests = await GetUserInterestsFromCosmos();            
+            var userInterests = await GetUserInterestsFromCosmos();
 
             // Now loop through all the user interests
             // finding the match inside of the AllNewsCategories mark it as a fave

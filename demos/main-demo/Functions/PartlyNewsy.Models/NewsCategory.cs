@@ -10,7 +10,8 @@ namespace PartlyNewsy.Models
         public string CategoryName { get; set; }
         public string BackgroundImageUrl { get; set; }
 
-        static readonly string mainUrl = "https://xdsstoragescus.blob.core.windows.net/";
+        //static readonly string mainUrl = "https://xdsstoragescus.blob.core.windows.net/";
+        //static readonly string mainUrl = "https://.azureedge.net/";
 
         bool isFavorite;
         public bool IsFavorite
@@ -43,7 +44,8 @@ namespace PartlyNewsy.Models
     public class AllNewsCategories : List<NewsCategory>
     {
         public static AllNewsCategories GetDefaultCategories { get; }
-        static readonly string mainUrl = "https://xdsstoragescus.blob.core.windows.net/";
+        //static readonly string mainUrl = "https://xdsstoragescus.blob.core.windows.net/";
+        //static readonly string mainUrl = "https://.azureedge.net/";
 
         public AllNewsCategories()
         {

@@ -9,12 +9,11 @@ using PartlyNewsy.Models;
 using Xamarin.Essentials;
 using Xamarin.Forms;
 using PartlyNewsy.Core;
-using Refit;
 using Microsoft.AppCenter.Crashes;
 using System.Net.Http;
 using System.Net.Http.Headers;
 
-//[assembly: Dependency(typeof(CosmosDataService))]
+//[assembly: Dependency(typeof(CosmosPartitionService))]
 namespace PartlyNewsy.Core
 {
     public class CosmosPartitionService : IDataService
@@ -30,7 +29,7 @@ namespace PartlyNewsy.Core
 
         public CosmosPartitionService()
         {
-            authService = DependencyService.Get<IAuthenticationService>();
+            authService = DependencyService.Get<IAuthenticationService>();            
         }
 
         async Task InitializeCosmos()

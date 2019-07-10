@@ -67,7 +67,7 @@ namespace PartlyNewsy.Core
 
         public void SetParent(object parent)
         {
-            throw new NotImplementedException();
+            // do nothing on purpose
         }
     }
 }
